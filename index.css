@@ -1,0 +1,213 @@
+/* ================= Reset & Basics ================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("Images/planets.gif");
+    background-repeat: no-repeat;
+    background-position: center 30%;
+    background-attachment: fixed;
+    background-size: contain;
+    background-color: #000000; /* fallback */
+    font-family: 'Arial', sans-serif;
+}
+
+/* ================= Page Title ================= */
+.page-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem); /* scales dynamically */
+    text-align: left;
+    margin-top: 1rem;
+    margin-left: 2vw;
+    color: #ffffff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* ================= About Description ================= */
+#aboutPage .about-description {
+    position: relative; /* avoids overlap on small screens */
+    margin:70vh 2vw;
+    max-width: 90vw;
+    color: white;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    line-height: 1.6;
+}
+
+/* ================= Top-right Buttons ================= */
+#aboutPage .top-right-buttons {
+    position: absolute;
+    top: 1vh;
+    right: 2vw;
+    display: flex;
+    gap: 1vw;
+    flex-wrap: wrap; /* wrap buttons on small screens */
+    z-index: 1000;
+}
+
+.top-right-buttons .btn {
+    padding: clamp(8px, 1.5vw, 12px) clamp(15px, 3vw, 25px);
+    font-size: clamp(12px, 2vw, 16px);
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #0ff, #00f);
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 0, 255, 0.4);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.top-right-buttons .btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #00f, #0ff);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.8), 0 0 50px rgba(0, 0, 255, 0.6);
+}
+
+/* ================= Popup Base ================= */
+.login-popup, .signup-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* ================= Popup Content ================= */
+.popup-content {
+    background: rgba(10, 10, 30, 0.95);
+    padding: clamp(1rem, 3vw, 2rem);
+    border-radius: 20px;
+    color: #fff;
+    width: clamp(280px, 80%, 500px);
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(0, 0, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(0, 255, 255, 0.4);
+}
+
+/* Popup title */
+.popup-content h2 {
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    color: #0ff;
+    margin-bottom: 1rem;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+}
+
+/* Inputs */
+.popup-content input[type="text"],
+.popup-content input[type="email"],
+.popup-content input[type="password"] {
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: clamp(8px, 1.5vw, 12px);
+    border: 2px solid rgba(0, 255, 255, 0.4);
+    border-radius: 12px;
+    outline: none;
+    background-color: rgba(0, 0, 30, 0.7);
+    color: #fff;
+    font-size: clamp(14px, 2vw, 16px);
+    transition: all 0.3s ease;
+}
+
+.popup-content input:focus {
+    border-color: #0ff;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.6), 0 0 20px rgba(0, 0, 255, 0.4);
+    background-color: rgba(0, 0, 50, 0.8);
+}
+
+/* Submit button */
+.popup-content input[type="submit"] {
+    width: 100%;
+    padding: clamp(10px, 2vw, 12px);
+    margin-top: 0.8rem;
+    background: linear-gradient(135deg, #0ff, #00f);
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-size: clamp(14px, 2vw, 16px);
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 0, 255, 0.4);
+    transition: all 0.3s ease;
+}
+
+.popup-content input[type="submit"]:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #00f, #0ff);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.8), 0 0 50px rgba(0, 0, 255, 0.6);
+}
+
+/* Close button */
+.popup-content .close {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    font-size: clamp(20px, 3vw, 28px);
+    cursor: pointer;
+    color: #0ff;
+    transition: color 0.3s ease;
+}
+
+.popup-content .close:hover {
+    color: #00f;
+}
+
+/* ================= Utility ================= */
+.hidden {
+    display: none;
+}
+
+.popup-link {
+    color: #0ff;
+}
+
+/* ================= Media Queries ================= */
+
+/* Tablets / medium devices */
+@media only screen and (max-width: 900px) {
+    .page-title {
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+    }
+
+    #aboutPage .about-description {
+        font-size: clamp(0.9rem, 2vw, 1.1rem);
+    }
+}
+
+/* Phones / small devices */
+@media only screen and (max-width: 600px) {
+    .page-title {
+        font-size: clamp(1.3rem, 4vw, 2rem);
+        margin-left: 1vw;
+    }
+
+    #aboutPage .about-description {
+        font-size: clamp(0.8rem, 2vw, 1rem);
+        margin: 3vh 2vw;
+    }
+
+    .top-right-buttons {
+        top: 1vh;
+        right: 2vw;
+        gap: 2vw;
+        flex-wrap: wrap;
+    }
+
+    .top-right-buttons .btn {
+        padding: clamp(6px, 3vw, 10px) clamp(12px, 3vw, 20px);
+        font-size: clamp(12px, 3vw, 14px);
+        min-width: 70px;
+    }
+}

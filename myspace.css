@@ -1,0 +1,133 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: #000;
+  overflow: hidden;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: transparent url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
+  animation: moveStars 60s linear infinite;
+}
+
+@keyframes moveStars {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-500px, -500px); }
+}
+
+/* Title */
+.title h1 {
+    font-family: 'Exo 2', sans-serif; /* modern, techy font */
+    font-weight: 800;
+    font-size: px;
+    color: #fff;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-top: 20px;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 0 30px rgba(0, 191, 255, 0.4);
+}
+
+#logout {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #0ff, #00f);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 0, 255, 0.4);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+#logout:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.8), 0 0 50px rgba(0, 0, 255, 0.6);
+    background: linear-gradient(135deg, #00f, #0ff);
+}
+
+/* Orbit rings */
+.ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* allow clicks to pass through ring */
+}
+
+
+/* Wrapper rotates planet */
+.planet-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: center center;
+    animation: orbit linear infinite;
+   
+    z-index: 1; /* ensure it’s below planets */
+}
+
+/* Planet itself */
+.planet {
+    pointer-events: auto; /* allow clicks */
+    z-index: 10; /* make sure it’s on top */
+    position: absolute;
+    border-radius: 50%;
+    width: 5vw;   /* make sure width = height */
+    height: 5vw;
+    background-size: cover;
+    top: 50%;
+    left: 50%;
+    cursor: pointer;
+}
+
+
+/* Planet sizes */
+.planet[data-planet="1"] { width:6vw; height:6vw; background-image:url("planets/1.png"); }
+.planet[data-planet="2"] { width:5vw; height:5vw; background-image:url("planets/2.png"); }
+.planet[data-planet="3"] { width:5vw; height:5vw; background-image:url("planets/3.png"); }
+.planet[data-planet="4"] { width:5.5vw; height:5.9vw; background-image:url("planets/4.png"); }
+.planet[data-planet="5"] { width:6vw; height:6vw; background-image:url("planets/5.png"); }
+.planet[data-planet="6"] { width:6vw; height:6vw; background-image:url("planets/6.png"); }
+.planet[data-planet="7"] { width:6vw; height:6.5vw; background-image:url("planets/7.png"); }
+.planet[data-planet="8"] { width:7vw; height:7vw; background-image:url("planets/8.png"); }
+.planet[data-planet="9"] { width:6vw; height:6vw; background-image:url("planets/9.png"); }
+
+/* Orbit animations with different speeds and rotations */
+.wrapper-1 { animation-duration:12s; transform: rotate(0deg); }
+.wrapper-2a { animation-duration:18s; transform: rotate(60deg); }
+.wrapper-2b { animation-duration:25s; transform: rotate(240deg); }
+.wrapper-3a { animation-duration:30s; transform: rotate(45deg); }
+.wrapper-3b { animation-duration:40s; transform: rotate(225deg); }
+.wrapper-4a { animation-duration:45s; transform: rotate(30deg); }
+.wrapper-4b { animation-duration:50s; transform: rotate(210deg); }
+.wrapper-5a { animation-duration:55s; transform: rotate(60deg); }
+.wrapper-5b { animation-duration:60s; transform: rotate(240deg); }
+
+@keyframes orbit {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Position planets at orbit distance (half of ring width) */
+/* Position planets at orbit distance (half of ring width) */
+.wrapper-1 .planet { transform: translateX(10vw) translate(-50%, -50%); } /* ring 20vw */
+.wrapper-2a .planet,
+.wrapper-2b .planet { transform: translateX(15vw) translate(-50%, -50%); } /* ring 30vw */
+.wrapper-3a .planet,
+.wrapper-3b .planet { transform: translateX(20vw) translate(-50%, -50%); } /* ring 40vw */
+.wrapper-4a .planet,
+.wrapper-4b .planet { transform: translateX(25vw) translate(-50%, -50%); } /* ring 50vw */
+.wrapper-5a .planet,
+.wrapper-5b .planet { transform: translateX(30vw) translate(-50%, -50%); } /* ring 60vw */
+

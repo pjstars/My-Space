@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About</title>
+  <link rel="stylesheet" type="text/css" href="index.css" />
+</head>
+
+<body id="aboutPage">
+  <h1 class="page-title">MY SPACE</h1>
+  <!-- Top Right Buttons -->
+  <div class="top-right-buttons">
+    <button id="loginBtn" class="btn">Login</button>
+    <button id="signupBtn" class="btn">Sign Up</button>
+    <!--<a href="SignUp.html" class="btn">Sign Up</a>-->
+  </div>
+
+  <!-- Website Description -->
+  <div class="about-description">
+    <p>
+      <strong>My Space</strong> is a journaling web app designed to help you manage stress and express your thoughts in
+      a safe, creative way. Inspired by mental health research, the app lets you click on animated planets to open
+      small, personal writing spaces—your own corner of the galaxy to reflect, vent, or just breathe.
+    </p>
+    <p>
+      Whether you're feeling overwhelmed or just need to clear your mind, <em>My Space</em> gives you a private space to
+      write, save, or erase your thoughts. No pressure, no judgment—just you and your words.
+    </p>
+  </div>
+
+  <!-- Login Popup Box -->
+  <div id="loginPopup" class="login-popup hidden">
+    <div class="popup-content">
+      <span id="closePopup" class="close">&times;</span>
+      <h2>Login</h2>
+      <form onsubmit="login(); return false;">
+        <label>Email</label>
+        <input type="email" id="loginEmailInput" placeholder="" required>
+        <label>Password</label>
+        <input type="password" id="loginPasswordInput" placeholder="" required>
+        <input type="submit" value="Submit">
+      </form>
+      <p class="para-2">Don't have an account? <a href="#" class="popup-link" onclick="switchToSignUp()">Sign Up</a></p>
+    </div>
+  </div>
+
+
+  <!-- Sign-Up Popup -->
+  <div class="signup-popup hidden" id="signupPopup">
+    <div class="popup-content">
+      <span class="close" onclick="closeSignupPopup()">&times;</span>
+      <h2>Sign Up</h2>
+      <form onsubmit="signup(); return false;">
+        <label>First Name</label>
+        <input type="text" id="signupFirstNameInput" placeholder="" required>
+
+        <label>Last Name</label>
+        <input type="text" id="signupLastNameInput" placeholder="" required>
+
+        <label>Email</label>
+        <input type="email" id="signupEmailInput" placeholder="" required>
+
+        <label>Password</label>
+        <input type="password" id="signupPasswordInput" placeholder="" required>
+
+        <label>Confirm Password</label>
+        <input type="password" id="signupConfirmPasswordInput" placeholder="" required>
+
+        <input type="submit" value="Submit" class="btn">
+      </form>
+
+      <p class="para-2">Already have an account? <a href="#" class="popup-link" onclick="switchToLogin()"> Login </a>
+      </p>
+    </div>
+  </div>
+
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-auth.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>
